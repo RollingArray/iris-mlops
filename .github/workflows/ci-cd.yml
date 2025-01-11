@@ -21,7 +21,7 @@ jobs:
       - name: Lint Code
         run: flake8 src
 
-  testing:
+  test:
     runs-on: ubuntu-latest  # Use the latest Ubuntu environment for the job
 
     steps:
@@ -38,10 +38,14 @@ jobs:
         python -m pip install --upgrade pip  # Upgrade pip
         pip install -r requirements.txt  # Install dependencies from requirements.txt
 
+    - name: Start Flask app in the background
+      run: |
+        nohup python app.py &  # Start the Flask app in the background
+        sleep 5  # Give Flask some time to start
+
     - name: Run tests
       run: |
-        curl -s http://localhost:5000  # Optional: Start the Flask app (replace with your actual command if needed)
-        python -m unittest discover -s src -p "test_*.py"  # Run the unit tests in the `src` folder
+        python -m unittest discover -s src -p "test_*.py"  # Run the unit tests
 
   deploy:
     runs-on: ubuntu-latest
