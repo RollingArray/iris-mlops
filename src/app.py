@@ -7,8 +7,13 @@ app = Flask(__name__)
 with open("src/model.pkl", "rb") as f:
     model = pickle.load(f)
 
+
 @app.route("/predict", methods=["POST"])
 def predict():
+    """
+    Endpoint to predict the iris species.
+    Expects a JSON payload with a key "features" containing the input features.
+    """
     # Expecting JSON payload with "features"
     data = request.json
     features = data["features"]
@@ -16,6 +21,7 @@ def predict():
     # Predict species
     prediction = model.predict([features])
     return jsonify({"prediction": prediction[0]})
+
 
 if __name__ == "__main__":
     app.run(debug=True)

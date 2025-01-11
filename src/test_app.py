@@ -1,7 +1,9 @@
 import unittest
 from app import app
 
+
 class TestApp(unittest.TestCase):
+
     def test_predict(self):
         tester = app.test_client()
         response = tester.post(
@@ -10,6 +12,7 @@ class TestApp(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertIn("prediction", response.json)
+
 
 if __name__ == "__main__":
     unittest.main()
