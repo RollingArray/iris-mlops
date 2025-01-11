@@ -42,7 +42,7 @@ jobs:
     - name: Start Flask app in the background
       run: |
         nohup python app.py > flask.log 2>&1 &  # Start Flask in the background
-        sleep 10  # Wait for Flask to start
+        sleep 30  # Wait for Flask to start
 
     - name: Verify Flask app is running
       run: |
