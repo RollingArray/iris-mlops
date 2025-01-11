@@ -41,7 +41,7 @@ jobs:
     - name: Start Flask app in the background
       run: |
         nohup python app.py &  # Start the Flask app in the background
-        sleep 5  # Give Flask some time to start
+        sleep 15  # Give Flask some time to start
 
     - name: Run tests
       run: |
