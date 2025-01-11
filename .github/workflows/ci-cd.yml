@@ -22,7 +22,7 @@ jobs:
         run: flake8 src
 
   # Job to run tests after Flask app has started
-  run_tests:
+  testing:
     runs-on: ubuntu-latest
 
     steps:
