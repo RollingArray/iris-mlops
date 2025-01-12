@@ -1,8 +1,7 @@
 flask
+numpy
 scikit-learn
 pytest
 flake8
 requests==2.26.0
 requests-mock
-mlflow
-dvc

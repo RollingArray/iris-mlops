@@ -4,7 +4,7 @@ import pickle
 app = Flask(__name__)
 
 # Load the trained model
-with open("src/model.pkl", "rb") as f:
+with open("src/best_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 
@@ -24,4 +24,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=6000)
