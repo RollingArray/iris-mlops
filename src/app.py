@@ -1,3 +1,8 @@
+"""
+Developer: Ranjoy Sen
+Description: Flask application to serve the trained iris model for predictions.
+"""
+
 from flask import Flask, request, jsonify
 import pickle
 
