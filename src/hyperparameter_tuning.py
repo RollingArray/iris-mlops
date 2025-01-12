@@ -7,6 +7,7 @@ import pickle
 import os
 from optuna.visualization import plot_optimization_history
 
+
 # Load the dataset
 data = pd.read_csv("data/iris.csv")
 data = data.drop(columns=["Id"])
@@ -17,6 +18,7 @@ y = data["Species"]
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
+
 
 # Define objective function for Optuna
 def objective(trial):
@@ -40,6 +42,7 @@ def objective(trial):
     # Return evaluation metric
     return accuracy_score(y_test, y_pred)
 
+
 # Create an Optuna study
 study = optuna.create_study(direction="maximize")
 study.optimize(objective, n_trials=50)
@@ -47,6 +50,7 @@ study.optimize(objective, n_trials=50)
 # Print and save the best hyperparameters
 print(f"Best Hyperparameters: {study.best_params}")
 print(f"Best Accuracy: {study.best_value}")
+
 
 # Train and save the best model
 best_model = RandomForestClassifier(**study.best_params, random_state=42)
@@ -60,6 +64,7 @@ with open("src/best_model.pkl", "wb") as f:
     pickle.dump(best_model, f)
 
 print("Best model saved as src/best_model.pkl")
+
 
 # Use the study object from your optimization process
 fig = plot_optimization_history(study)
