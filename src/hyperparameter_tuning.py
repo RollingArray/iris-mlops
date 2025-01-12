@@ -1,3 +1,8 @@
+"""
+Author: Ranjoy Sen
+Description: Hyperparameter optimization for Random Forest using Optuna.
+"""
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -6,7 +11,6 @@ import optuna
 import pickle
 import os
 from optuna.visualization import plot_optimization_history
-
 
 # Load the dataset
 data = pd.read_csv("data/iris.csv")
@@ -22,6 +26,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Define objective function for Optuna
 def objective(trial):
+    """
+    Objective function for Optuna to optimize hyperparameters of Random Forest.
+    """
     # Define hyperparameter search space
     n_estimators = trial.suggest_int("n_estimators", 10, 200)
     max_depth = trial.suggest_int("max_depth", 3, 20)
@@ -51,7 +58,6 @@ study.optimize(objective, n_trials=50)
 print(f"Best Hyperparameters: {study.best_params}")
 print(f"Best Accuracy: {study.best_value}")
 
-
 # Train and save the best model
 best_model = RandomForestClassifier(**study.best_params, random_state=42)
 best_model.fit(X_train, y_train)
@@ -64,7 +70,6 @@ with open("src/best_model.pkl", "wb") as f:
     pickle.dump(best_model, f)
 
 print("Best model saved as src/best_model.pkl")
-
 
 # Use the study object from your optimization process
 fig = plot_optimization_history(study)
