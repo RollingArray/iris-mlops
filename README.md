@@ -152,7 +152,7 @@ A GitHub Actions pipeline is configured to automate code quality checks, testing
 
 1. **Linting:** Ensures code adheres to Python standards using `flake8`.
 2. **Testing:** Runs the unit tests from `test_app.py`.
-3. **Deployment:** Placeholder for deploying the model (extendable for real-world deployment).
+3. **Deployment:** Placeholder for deploying the model.
 
 ---
 
@@ -162,14 +162,6 @@ A GitHub Actions pipeline is configured to automate code quality checks, testing
 - **Flask:** Web framework for building the API.
 - **scikit-learn:** Library for machine learning.
 - **GitHub Actions:** CI/CD pipeline automation.
-
----
-
-## **Future Enhancements**
-
-- Deploy the API to a cloud platform (e.g., AWS, Azure, or Heroku).
-- Add support for multiple model versions with version control.
-- Implement additional evaluation metrics for model performance.
 
 ---
 
@@ -187,4 +179,4 @@ Contributions are welcome! To contribute:
 
 ## **License**
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License.
