@@ -1,4 +1,4 @@
-# Iris Classification Project
+# Iris Classification MLOps Project
 
 ## **Overview**
 
@@ -6,23 +6,69 @@ This project demonstrates how to build, test, and deploy a machine learning mode
 
 ---
 
-## **Project Structure**
+## **Folder and File Structure**
 
 ```
-iris-mlops/
+Iris-mlops
+├── requirements.txt
+├── src/
+│   ├── app.py
+│   ├── best_model.pkl
+│   ├── dynamic_add_data_to_iris.py
+│   ├── hyperparameter_tuning.py
+│   ├── model.pkl
+│   ├── model.py
+│   ├── response.json
+│   ├── test_app.py
+├── DockerFile
+├── requirements.txt
+├── README.md
+├── .gitignore
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml       # GitHub Actions CI/CD pipeline configuration
-├── src/
-│   ├── model.py            # Model training script
-│   ├── app.py              # Flask API to serve the model
-│   └── test_app.py         # Unit tests for the API
-├── data/
-│   └── iris.csv            # Dataset file
-├── requirements.txt        # Python dependencies
-├── README.md               # Project documentation
-└── .gitignore              # Ignored files and directories
+│       └── ci-cd.yml
 ```
+
+---
+
+### **1. requirements.txt**
+A list of Python dependencies required to run the project. Includes libraries for data processing, machine learning, and deployment.
+
+---
+
+### **2. src/**
+Contains the core scripts and resources for the project.
+
+- **app.py**: Flask or FastAPI application script for serving the trained model via REST API.
+- **best_model.pkl**: The best-performing trained model from hyperparameter tuning, ready for deployment.
+- **dynamic_add_data_to_iris.py**: Script for dynamically adding new data to the Iris dataset.
+- **hyperparameter_tuning.py**: Script for optimizing model hyperparameters using Optuna.
+- **model.pkl**: Generated trained model for testing and evaluation.
+- **model.py**: Contains the core logic for model training and evaluation.
+- **response.json**: Sample API response for testing the app endpoints.
+- **test_app.py**: Unit tests for validating the API functionality and model performance.
+
+---
+
+### **3. DockerFile**
+Defines the Docker image for the project, specifying the environment setup, dependencies, and how to run the application in a containerized environment.
+
+---
+
+### **4. README.md**
+Comprehensive guide to the project, icluding installation steps, usage instructions, and details about the workflow.
+
+---
+
+### **5. .gitignore**
+Specifies files and directories to be ignored by Git, such as logs, `.pkl` files, and virtual environment folders.
+
+---
+
+### **6. .github/workflows/**
+Contains CI/CD pipeline configuration files.
+
+- **ci-cd.yml**: GitHub Actions workflow to automate testing, building, and deployment processes for the project.
 
 ---
 
